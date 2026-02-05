@@ -1,0 +1,19 @@
+# shelld test configuration
+
+[server]
+port = 8084
+
+[shell]
+command = "/bin/bash"
+
+[timeout]
+command = "30s"
+command_maximum = "5m"
+idle = "5m"
+shutdown = "10s"
+kill = "2s"
+
+[hooks]
+shell = "/bin/sh"
+lock = ""
+unlock = ""

@@ -1,0 +1,44 @@
+# shelld configuration example
+
+[server]
+# port to listen on ( default: 8080 )
+port = 8080
+
+# if true, /unlock shuts down the server. if false, /unlock recycles the shell
+# ( terminates it and clears the key lock ) but keeps the server running for
+# the next client. ( default: true )
+die_on_unlock = true
+
+[shell]
+# shell command to execute ( default: /bin/bash )
+command = "/bin/bash"
+
+# working directory for the shell ( optional, defaults to the directory from which shelld was launched )
+# working_directory = "/home/user"
+
+[timeout]
+# default time to wait for command completion ( default: 5m )
+# can be overridden per-request via X-Command-Timeout header
+command = "5m"
+
+# maximum allowed value for X-Command-Timeout header ( default: 30m )
+command_maximum = "30m"
+
+# shutdown server after this duration of inactivity ( default: 30m )
+idle = "30m"
+
+# maximum time to wait for graceful shutdown ( default: 30s )
+shutdown = "30s"
+
+# time to wait after SIGINT before sending SIGKILL ( default: 5s )
+kill = "5s"
+
+[hooks]
+# shell used to execute hook commands ( default: /bin/sh )
+shell = "/bin/sh"
+
+# command to run when shell is locked ( optional )
+lock = ""
+
+# command to run when shell is unlocked ( optional )
+unlock = ""
